@@ -28,5 +28,10 @@ export default defineConfig({
       '@entities': fileURLToPath(new URL('./src/entities', import.meta.url)),
       '@shared': fileURLToPath(new URL('./src/shared', import.meta.url))
     }
+  },
+  build: {
+    reportCompressedSize: false, // - отчеты о размерах, сжатых gzip. Сжатие больших выходных файлов может быть медленным, поэтому его отключение может повысить производительность сборки для больших проектов.
+    sourcemap: process.env.NODE_ENV === 'development',
+    assetsInlineLimit: 0
   }
 })

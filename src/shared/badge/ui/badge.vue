@@ -31,5 +31,20 @@ const { mods = '', tag } = defineProps<Props>()
   .badge--alt {
     background-color: cl(surface-fourth);
   }
+
+  .badge--success {
+    background-color: cl(surface-fifth);
+    color: cl(success);
+  }
+
+  .badge--icon-check {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    &::before {
+      @include variable-icon(url('/images/i-check.svg'), 16px, cl(success));
+    }
+  }
 }
 </style>

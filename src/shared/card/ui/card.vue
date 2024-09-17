@@ -15,12 +15,20 @@ const { mods = '', tag, data } = defineProps<Props>()
 <template>
   <component :is="tag ? tag : 'article'" :class="['card', modsJoin(mods, 'card')]">
     <div class="card__header">
-      <div class="card__header-right"></div>
+      <div class="card__header-right">
+        <button class="card__control-more"></button>
+      </div>
     </div>
 
     <div class="card__main">
       <picture class="card__img">
-        <img :src="data.preview" :alt="data.vehicle_name" loading="lazy" width="315" height="135" />
+        <img
+          :src="data.preview ? data.preview : '/images/default-car.png'"
+          :alt="data.vehicle_name"
+          loading="lazy"
+          width="315"
+          height="135"
+        />
       </picture>
 
       <h2 class="card__title">{{ data.vehicle_name }}</h2>
@@ -29,7 +37,10 @@ const { mods = '', tag, data } = defineProps<Props>()
 
     <div class="card__footer">
       <div class="card__footer-left">
-        <Badge mods="alt">17/30</Badge>
+        <Badge mods="success, icon-check" v-if="data.uploads === data.angles_count"
+          >{{ data.uploads }}/{{ data.angles_count }}</Badge
+        >
+        <Badge mods="alt" v-else>{{ data.uploads }}/{{ data.angles_count }}</Badge>
       </div>
       <div class="card__footer-right">
         <div class="card__desc">3 days left</div>
@@ -46,6 +57,26 @@ const { mods = '', tag, data } = defineProps<Props>()
     padding: 40px 24px 16px;
     display: flex;
     flex-direction: column;
+    position: relative;
+
+    &__header {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      right: 20px;
+      display: flex;
+    }
+
+    &__header-right {
+      margin-left: auto;
+    }
+
+    &__control-more {
+      &::before {
+        content: '';
+        @include variable-icon(url('/images/i-more.svg'), 24px, cl(text, 0.6));
+      }
+    }
 
     &__img {
       @include center;
