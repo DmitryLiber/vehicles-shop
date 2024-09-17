@@ -1,0 +1,1 @@
+import{T as t,_ as s}from"./typography-nzZg5pHe.js";import{d as o,c as n,w as e,u as a,o as r,a as _,b as c}from"./index-SVHS4BvU.js";const u=o({__name:"settings",setup(p){return(d,f)=>(r(),n(a(s),null,{default:e(()=>[_(a(t),{tag:"h1",mods:"heading1"},{default:e(()=>[c("Settings")]),_:1})]),_:1}))}});export{u as default};
