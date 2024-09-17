@@ -34,18 +34,18 @@ try {
     }
   })
 
-  glob('dist/**/*.js', {}, async (error, files) => {
-    // eslint-disable-next-line no-restricted-syntax
-    for (const file of files) {
-      let fileContent = await readFile(file, 'utf8')
+  // glob('dist/**/*.js', {}, async (error, files) => {
+  //   // eslint-disable-next-line no-restricted-syntax
+  //   for (const file of files) {
+  //     let fileContent = await readFile(file, 'utf8')
 
-      Object.entries(FIND_STRINGS_JS).forEach(([key, value]) => {
-        fileContent = fileContent.replace(new RegExp(escapeRegExp(key), 'g'), value)
-      })
+  //     Object.entries(FIND_STRINGS_JS).forEach(([key, value]) => {
+  //       fileContent = fileContent.replace(new RegExp(escapeRegExp(key), 'g'), value)
+  //     })
 
-      await writeFile(file, fileContent, 'utf8')
-    }
-  })
+  //     await writeFile(file, fileContent, 'utf8')
+  //   }
+  // })
 
   // eslint-disable-next-line no-console
   console.log('\x1b[32m%s\x1b[0m', 'BUILD END!')

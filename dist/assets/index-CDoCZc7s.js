@@ -1,1 +1,0 @@
-import{T as o,_ as t}from"./typography-nzZg5pHe.js";import{d as r,c as s,u as e,o as n,w as a,a as _,b as c}from"./index-SVHS4BvU.js";const m=r({__name:"profile",setup(f){return(p,d)=>(n(),s(e(t),null,{default:a(()=>[_(e(o),{tag:"h1",mods:"heading1"},{default:a(()=>[c("Profile")]),_:1})]),_:1}))}});export{m as default};
